@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Quote from "./components/Quote";
+import { getQuote } from "./service/requests";
 
 function App() {
+  const [quote, setQuote] = useState({});
+
+  useEffect(() => {
+    getQuote(setQuote);
+  }, []);
+
+  console.log(quote);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <h1>Quotes</h1>
+      {quote ? <Quote text={quote.content} author={quote.author} /> : <h1>Quote not found.</h1>}
     </div>
   );
 }
