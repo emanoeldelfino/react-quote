@@ -10,8 +10,11 @@ body {
 }
 
 .card {
-  padding: 100px 50px;
+  margin: 0px 75px;
+  padding: 0px 50px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 10px 2px;
+  width: 350px;
+  max-width: 350px;
 }
 
 #quote {
@@ -21,4 +24,7 @@ body {
 #author {
   font-weight: 300;
   font-size: 15px;
+  text-align: right;
 }
+
+/* TODO add media query for small screens */
